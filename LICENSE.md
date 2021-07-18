@@ -1,2 +1,2 @@
 
-Copyright (C) 2021 AnderGalisteo
+Copyright (C) 2021 Ander Galisteo
