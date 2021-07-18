@@ -30,8 +30,19 @@
 "27","15","lenguaje-de-bajo-nivel","Lenguaje cercano al lenguaje máquina. Ofrece más control pero es más complicado de utilizar."
 "28","15","lenguaje-compilado","Lenguaje en el que se usa un compilador para ejecutarlo."
 "29","15","lenguaje-interpretado","Lenguaje en el que se usa un interprete para ejecutarlo."
-
-
+"30","16","repositorio-de-control-de-versiones","Programa informático utilizado para controlar, almacenar y gestionar diferentes versiones de código fuente."
+"31","16","github","Plataforma online de control de versiones más utilizado del mundo, perteneciente a Microsoft"
+"32","17","lenguaje-de-programación","Ver id 17"
+"33","17","javascript","Lenguaje normalmente utilizado en cliente para web aunque en los últimos años se ha versatilizado y utilizado para más cosas."
+"34","17","python","Ver id 22."
+"35","17","php","Lenguaje de backend. Los que no lo usan lo detestan y los que sí lo temen. Difícil de mantener."
+"36","17","Java","Ver id 25."
+"37","17","html","NO ES UN LENGUAJE DE PROGRAMACIÓN. Sirve para crear el front de las webs."
+"38","17","CSS","Junto con html, ayuda a configurar el estilo de las webs."
+"39","17","R",Ver id 23.""
+"40","17","SQL","Lenguaje utilizado para hacer Queries a bases de datos."
+"41","21","Algoritmo","Conjunto de instrucciones y reglas para ejecutar una tarea."
+"42","12","Diagrama-de-flujo","Diagrama en el que se muestra el flujo de un algoritmo."
 
 
 
