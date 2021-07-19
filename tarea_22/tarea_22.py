@@ -6,39 +6,38 @@ Entrada: Lista de la producción de leche por vaca, en litros por día.
 2.- El algoritmo que programes tiene que calcular la siguiente salida:
 Salida: Cantidad máxima de producción de leche se puede obtener."""
 
-def verificar_y_calcular(val):
-    try:
-        x = float(val)
-    except ValueError:
-        print("Tiene que introducir un número")
-        return 1,0
-    if len(val)>6:
-        print("El número no puede tener más que 4 decimales")
-        return 2,0
-    if not(x>= 0.0001 and x<=0.9999):
-        print("El número tiene que estar entre 0.0001 y 0.9999")
-        return 3,0
-    numerador = int(x*10000)
-    denominador = 10000
+"""
+La solución propuesta es una de fuerza bruta. Este tipo de problemas conocidos como handbag problems https://brilliant.org/wiki/backpack-problem/ son problemas 
+cuya solución óptima sólo se obtiene por fuerza bruta. Normalmente se utilizan métricas subóptimas para trabajar en ello.
+Aquí se pruebas todas las combinaciones.
+"""
 
-    maxnum = max(numerador, denominador)
-
-    i = 2
-    while(i<maxnum):
-        if numerador%i == 0 and denominador%i == 0:
-            numerador = numerador/i
-            denominador = denominador/i
-            maxnum = max(numerador, denominador)
-            i = 2
-        else:
-            i = i + 1
-    return str(int(numerador)), str(int(denominador))
+import itertools
+def max_milk(number_of_cows,max_weight,weight_of_cows,milk_of_cows):
+    max_milk_obtainable = 0
+    for i in range(number_of_cows):    
+        iterable= itertools.combinations(range(number_of_cows),i+1)
+        for element in iterable:
+            if sum([weight_of_cows[i] for i in list(element)]) <= max_weight:
+                if sum([milk_of_cows[i] for i in list(element)]) >= max_milk_obtainable:
+                    max_milk_obtainable = sum([milk_of_cows[i] for i in list(element)])
+    return max_milk_obtainable
+    
 
 
 
 if __name__ == "__main__":
-    val = input("Introduzca su valor entre 0.0001 y 0.9999: ")
-    numerador, denominador = verificar_y_calcular(val)
-    if not(denominador == 0):
-        print(numerador+"/"+denominador)
+    number_of_cows = int(input("Introduzca el número de vacas:\n"))
+    max_weight = int(input("Introduzca el peso máximo del camión:\n"))
+    weight_of_cows = [] 
+    milk_of_cows = []
+    for i in range(number_of_cows):
+        weight_of_cows.append(int(input("Introduzca el peso de la vaca "+ str(i+1) + ":\n")))
+    for i in range(number_of_cows):
+        milk_of_cows.append(int(input("Introduzca la producción de leche da la vaca "+ str(i+1) + ":\n")))
+
+    max_milk_obtainable = max_milk(number_of_cows,max_weight,weight_of_cows,milk_of_cows)
+    print("The maximum number of milk is "+str(max_milk_obtainable))
+    
+            
 
