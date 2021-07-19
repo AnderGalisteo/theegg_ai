@@ -42,9 +42,10 @@
 "39","17","R",Ver id 23.""
 "40","17","SQL","Lenguaje utilizado para hacer Queries a bases de datos."
 "41","21","Algoritmo","Conjunto de instrucciones y reglas para ejecutar una tarea."
-"42","12","Diagrama-de-flujo","Diagrama en el que se muestra el flujo de un algoritmo."
-
-
+"42","21","Diagrama-de-flujo","Diagrama en el que se muestra el flujo de un algoritmo."
+"43","22","ada-lovelace","Augusta Ada King, condesa de Lovelace (Londres, 10 de diciembre de 1815-íd., 27 de noviembre de 1852) estuvo registrada al nacer como Augusta Ada Byron y conocida habitualmente como Ada Lovelace, fue una matemática y escritora británica, célebre sobre todo por su trabajo acerca de la calculadora de uso general de Charles Babbage, la denominada máquina analítica."
+"44","22","bucles","Uno de los pilares de la algoritmia. Repeticiones de conjuntos de funcionalidades."
+"45","22","lenguaje-de-programación","Ver id 17."
 
 
 "","25","arquitectura-cliente-servidor",""
