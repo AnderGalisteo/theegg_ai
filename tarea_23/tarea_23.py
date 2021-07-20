@@ -86,10 +86,6 @@ def generar_solitario(tamano,baraja):
         
         num_itera = num_itera+1
     return ''.join([chr(i+64) for i in solitario])
-def divide_into_chunks(frase, tamano):
-    chunks, chunk_size = len(frase), tamano
-    splitted_frase = [ frase[i:i+chunk_size] for i in range(0, chunks, chunk_size) ]
-    return splitted_frase
 def from_string_to_int_list(frase):
     return [int(i)-64 for i in list(map(str, map(ord, list(frase))))]
 def from_int_to_string(frase_lista):
@@ -105,9 +101,7 @@ def cifrar(frase,baraja):
     frase = frase.upper().replace(" ", "")
     if not(len(frase)%5 == 0):
         frase = frase + "X"*(5-len(frase)%5)
-    #splitted_frase = divide_into_chunks(frase, 5)
     solitario = generar_solitario(len(frase),baraja)
-    #splitted_solitario = divide_into_chunks(solitario, 5)
     frase_lista = from_string_to_int_list(frase)
     solitario_lista = from_string_to_int_list(solitario)
     suma_listas = sum_listas(frase_lista, solitario_lista)
@@ -125,6 +119,7 @@ if __name__ == "__main__":
     
     baraja = list(range(0,54))
     random.shuffle(baraja)
+    print(baraja)
     baraja1 = baraja.copy()
     frase = input("Introduzca la frase: ")
     print(descifrar(cifrar(frase,baraja1),baraja))

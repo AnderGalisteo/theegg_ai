@@ -1,55 +1,27 @@
 import unittest
 
-from tarea_21 import verificar_y_calcular
+from tarea_23 import generar_solitario, from_string_to_int_list,from_int_to_string,sum_listas,res_listas
 
 
-class tarea_21_tests(unittest.TestCase):
-    def test_que_sea_numero(self):
-        """Testea que los valores no sean numeros"""
-        valor1, valor2 = verificar_y_calcular("a")
-        self.assertEqual(1, valor1)
-        self.assertEqual(0, valor2)
-        valor1, valor2 = verificar_y_calcular("Hola")
-        self.assertEqual(1, valor1)
-        self.assertEqual(0, valor2)
-    def test_que_sea_de_la_longitud_adecuada(self):
-        """Testea que no tengan más decimales que los debidos"""
-        valor1, valor2 = verificar_y_calcular("0.000001")
-        self.assertEqual(2, valor1)
-        self.assertEqual(0, valor2)
-        valor1, valor2 = verificar_y_calcular("9.99999999")
-        self.assertEqual(2, valor1)
-        self.assertEqual(0, valor2)
 
-    def test_que_no_este_fuera_de_limite(self):
-        """Testea que los valores no estén fuera de límites"""
-        valor1, valor2 = verificar_y_calcular("10.0")
-        self.assertEqual(3, valor1)
-        self.assertEqual(0, valor2)
-        valor1, valor2 = verificar_y_calcular("0.000")
-        self.assertEqual(3, valor1)
-        self.assertEqual(0, valor2)
 
-    def test_comprueba_valores_normales(self):
-        """Testea el valor correcto de la función"""
-        valor1, valor2 = verificar_y_calcular("0.25")
-        self.assertEqual("1", valor1)
-        self.assertEqual("4", valor2)
-        valor1, valor2 = verificar_y_calcular("0.75")
-        self.assertEqual("3", valor1)
-        self.assertEqual("4", valor2)
-        valor1, valor2 = verificar_y_calcular("0.9999")
-        self.assertEqual("9999", valor1)
-        self.assertEqual("10000", valor2)
-        valor1, valor2 = verificar_y_calcular("0.33")
-        self.assertEqual("33", valor1)
-        self.assertEqual("10", valor2)
-        valor1, valor2 = verificar_y_calcular("0.5")
-        self.assertEqual("1", valor1)
-        self.assertEqual("2", valor2)
-        valor1, valor2 = verificar_y_calcular("0.11")
-        self.assertEqual("11", valor1)
-        self.assertEqual("100", valor2)
+class tarea_23_tests(unittest.TestCase):
+    def test_generar_solitario(self):
+        """Testea que se genere el solitario correctamente"""
+        valor1 = generar_solitario(10,[43, 48, 10, 8, 5, 12, 28, 25, 36, 23, 38, 0, 34, 27, 47, 3, 22, 35, 52, 44, 9, 26, 39, 17, 18, 29, 19, 46, 24, 53, 41, 37, 7, 20, 1, 11, 6, 14, 40, 42, 4, 45, 50, 30, 21, 49, 31, 33, 15, 16, 13, 2, 32, 51])
+        self.assertEqual("GULXVAIEQF", valor1)
+
+        valor1 = generar_solitario(100,[35, 21, 16, 8, 3, 13, 41, 0, 39, 30, 37, 15, 17, 34, 28, 44, 52, 9, 27, 19, 43, 14, 32, 25, 23, 36, 7, 4, 5, 24, 1, 40, 29, 48, 33, 18, 51, 2, 38, 50, 31, 45, 11, 46, 6, 53, 22, 49, 20, 10, 42, 26, 47, 12])
+        self.assertEqual("HEKSRCFWHHBQXEONCRRBBGAXPDJCRQVKUPAWOLZUHHDKIAFQYDOTNYOGIYSAPXCDJHQOEOOWLNABOLZXUFHRWBIFIWCLVBLOSIND", valor1)
+    def test_from_string_to_int_list(self):
+        therange = list(range(1,27))
+        self.assertEqual(therange, from_string_to_int_list("ABCDEFGHIJKLMNOPQRSTUVWXYZ"))
+    def test_from_int_to_string(self):
+        self.assertEqual(1, 1)
+    def test_sum_listas(self):
+        self.assertEqual(1, 1)
+    def test_res_listas(self):
+        self.assertEqual(1, 1)
         
 
 
