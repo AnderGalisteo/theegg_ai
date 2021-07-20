@@ -31,13 +31,12 @@ Por ejemplo, para cifrar el primer mensaje mencionado en la novela de Stephenson
 
 Si eres realmente bueno, puedes aprender a sumar letras en tu cabeza, y simplemente sumar las letras del paso (1) y (2). Sólo hace falta un poco de práctica. Es fácil recordar que A+A=B; recordar que T+Q=K es más difícil. 
 """
-from os import O_NDELAY
+
 import random
 
 
 def generar_solitario(tamano,baraja):
-    #print(baraja)
-    #print(tamano)
+
     num_itera = 0
     solitario = []
     while (num_itera<tamano):
@@ -54,7 +53,7 @@ def generar_solitario(tamano,baraja):
            
         index_comodin_1 = baraja.index(1)
         if index_comodin_1 == 53:
-            baraja = baraja[0:2]+[baraja[53]]+[baraja[2:53]]
+            baraja = baraja[0:2]+[baraja[53]]+baraja[2:53]
         elif index_comodin_1 == 52:
             one = [baraja[0]]
             two = [baraja[52]]
@@ -63,12 +62,19 @@ def generar_solitario(tamano,baraja):
             baraja = one+two+three+four
         else:
             one = baraja[0:index_comodin_1]
+            if not(type(one) == list):
+                one = [one]
             two = baraja[index_comodin_1+1:index_comodin_1+3]
             three = [baraja[index_comodin_1]]
             four = baraja[index_comodin_1+3:]
+            if not(type(four) == list):
+                four = [four]
             baraja = one+two+three+four
-            
-        index_comodin_0 = baraja.index(0)
+        try:    
+            index_comodin_0 = baraja.index(0)
+        except:
+            print("Error here")
+            print(baraja)
         index_comodin_1 = baraja.index(1)
         smaller_index = min(index_comodin_0,index_comodin_1)
         higher_index = max(index_comodin_0,index_comodin_1)
@@ -91,9 +97,9 @@ def from_string_to_int_list(frase):
 def from_int_to_string(frase_lista):
     return ''.join([chr(i+64) for i in frase_lista])
 def sum_listas(frase_lista, solitario_lista):
-    return [(frase_lista[i] + solitario_lista[i])%26 for i in range(len(frase_lista))]
+    return [(frase_lista[i] + solitario_lista[i])%27 for i in range(len(frase_lista))]
 def res_listas(frase_lista, solitario_lista):
-    return [(frase_lista[i]+26 - solitario_lista[i])%26 for i in range(len(frase_lista))]
+    return [(frase_lista[i]+27 - solitario_lista[i])%27 for i in range(len(frase_lista))]
     
 
 

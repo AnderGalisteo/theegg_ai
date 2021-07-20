@@ -1,6 +1,7 @@
 import unittest
+import random
 
-from tarea_23 import generar_solitario, from_string_to_int_list,from_int_to_string,sum_listas,res_listas
+from tarea_23 import generar_solitario, from_string_to_int_list,from_int_to_string,sum_listas,res_listas,cifrar,descifrar
 
 
 
@@ -17,14 +18,32 @@ class tarea_23_tests(unittest.TestCase):
         therange = list(range(1,27))
         self.assertEqual(therange, from_string_to_int_list("ABCDEFGHIJKLMNOPQRSTUVWXYZ"))
     def test_from_int_to_string(self):
-        self.assertEqual(1, 1)
+        therange = list(range(1,27))
+        self.assertEqual("ABCDEFGHIJKLMNOPQRSTUVWXYZ", from_int_to_string(therange))
     def test_sum_listas(self):
-        self.assertEqual(1, 1)
+        therange = list(range(1,27))
+        therange_reversed = therange.copy()
+        therange_reversed.reverse()
+        self.assertEqual([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], sum_listas(therange,therange_reversed))
+
+        self.assertEqual([2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25], sum_listas(therange,therange))
     def test_res_listas(self):
-        self.assertEqual(1, 1)
+        therange = list(range(1,27))
+        therange_reversed = therange.copy()
+        therange_reversed.reverse()
+        #self.assertEqual([1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25], res_listas(therange,therange_reversed))
+        self.assertEqual([2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25], res_listas(therange,therange_reversed))
+
+        self.assertEqual([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], res_listas(therange,therange))
+    def test_functional(self):
+        texto="En un lugar de la Mancha de cuyo nombre no quiero acordarme no ha mucho tiempo que vivia un hidalgo de los de lanza en astillero adarga antigua rocin flaco y galgo corredor Una olla de algo mas vaca que carnero salpicon las mas noches duelos y quebrantos los sabados lantejas los viernes algun palomino de anadidura los domingos consumian las tres cuartas partes de su hacienda El resto della concluian sayo de velarte calzas de velludo para las fiestas con sus pantuflos de lo mesmo y los dias de entresemana se honraba con su vellori de lo mas fino Tenia en su casa una ama que pasaba de los cuarenta y una sobrina que no llegaba a los veinte y un mozo de campo y plaza que asi ensillaba el rocin como tomaba la podadera Frisaba la edad de nuestro hidalgo con los cincuenta anos era de complexion recia seco de carnes enjuto de rostro gran madrugador y amigo de la caza Quieren decir que tenia el sobrenombre de Quijada o Quesada que en esto hay alguna diferencia en los autores que deste caso escriben aunque por conjeturas verosimiles se deja entender que se llamaba Quejana Pero esto importa poco a nuestro cuento basta que en la narracion del no se salga un punto de la verdad"
+        baraja = list(range(0,54))
+        random.shuffle(baraja)
+        baraja1 = baraja.copy()
         
-
-
+        
+        textotras=descifrar(cifrar(texto,baraja1),baraja)
+        self.assertEqual(texto.upper().replace(" ", ""),textotras)
 
 if __name__ == '__main__':
     unittest.main()
