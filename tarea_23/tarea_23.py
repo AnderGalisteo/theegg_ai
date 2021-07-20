@@ -31,44 +31,59 @@ Por ejemplo, para cifrar el primer mensaje mencionado en la novela de Stephenson
 
 Si eres realmente bueno, puedes aprender a sumar letras en tu cabeza, y simplemente sumar las letras del paso (1) y (2). Sólo hace falta un poco de práctica. Es fácil recordar que A+A=B; recordar que T+Q=K es más difícil. 
 """
+from os import O_NDELAY
 import random
 
 
 def generar_solitario(tamano,baraja):
+    #print(baraja)
+    #print(tamano)
     num_itera = 0
     solitario = []
     while (num_itera<tamano):
         index_comodin_0 = baraja.index(0)
         if index_comodin_0 == 53:
-            baraja = list(baraja[0])+list(baraja[53])+list(baraja[1:53])
+            one = [baraja[0]]
+            two = [baraja[53]]
+            three = baraja[1:53]
+            baraja = one+two+three
         else:
             tmp = baraja[index_comodin_0]
             baraja[index_comodin_0] = baraja[index_comodin_0+1]
             baraja[index_comodin_0+1] = tmp
+           
         index_comodin_1 = baraja.index(1)
         if index_comodin_1 == 53:
-            baraja = list(baraja[0:2])+list(baraja[53])+list(baraja[2:53])
+            baraja = baraja[0:2]+[baraja[53]]+[baraja[2:53]]
         elif index_comodin_1 == 52:
-            baraja = list(baraja[0])+list(baraja[52])+list(baraja[1:52])+list(baraja[53])
+            one = [baraja[0]]
+            two = [baraja[52]]
+            three = baraja[1:52]
+            four = [baraja[53]]
+            baraja = one+two+three+four
         else:
-            tmp = baraja[index_comodin_0]
-            baraja[index_comodin_0] = baraja[index_comodin_0+1]
-            baraja[index_comodin_0+1] = tmp
+            one = baraja[0:index_comodin_1]
+            two = baraja[index_comodin_1+1:index_comodin_1+3]
+            three = [baraja[index_comodin_1]]
+            four = baraja[index_comodin_1+3:]
+            baraja = one+two+three+four
+            
         index_comodin_0 = baraja.index(0)
         index_comodin_1 = baraja.index(1)
         smaller_index = min(index_comodin_0,index_comodin_1)
         higher_index = max(index_comodin_0,index_comodin_1)
 
-        baraja = list(baraja[higher_index+1:54])+list(baraja[smaller_index:higher_index+1])+list(baraja[0:smaller_index])
+        baraja = baraja[higher_index+1:54]+baraja[smaller_index:higher_index+1]+baraja[0:smaller_index]
         if baraja[53]!=0 and baraja[53]!=1:
             value = baraja[53]-1
             baraja = baraja[value+1:53]+baraja[0:value+1]+baraja[53:54]
         if baraja[baraja[0]] == 0 or baraja[baraja[0]] == 1:
             continue
-        if baraja[baraja[0]] > 26:
-            solitario.append(baraja[baraja[0]]-26)
+        if baraja[baraja[0]] > 27:
+            solitario.append(baraja[baraja[0]]-27)
         else:
-            solitario.append(baraja[baraja[0]])
+            solitario.append(baraja[baraja[0]]-1)
+        
         num_itera = num_itera+1
     return ''.join([chr(i+64) for i in solitario])
 def divide_into_chunks(frase, tamano):
@@ -110,7 +125,7 @@ if __name__ == "__main__":
     
     baraja = list(range(0,54))
     random.shuffle(baraja)
-
+    baraja1 = baraja.copy()
     frase = input("Introduzca la frase: ")
-    print(descifrar(cifrar(frase,baraja),baraja))
+    print(descifrar(cifrar(frase,baraja1),baraja))
 
