@@ -14,12 +14,18 @@ Aquí se pruebas todas las combinaciones.
 
 import itertools
 def max_milk(number_of_cows,max_weight,weight_of_cows,milk_of_cows):
+    # Inicializamos la leche a obtener
     max_milk_obtainable = 0
-    for i in range(number_of_cows):    
+    # Para cada número de vacas
+    for i in range(number_of_cows):  
+        # Para cada posible combinación de ellas  
         iterable= itertools.combinations(range(number_of_cows),i+1)
         for element in iterable:
+            # Si la suma del peso es menor que el que soporta el camión
             if sum([weight_of_cows[i] for i in list(element)]) <= max_weight:
+                # Si la cantidad que leche que producen al día es mayor que la anterior máxima
                 if sum([milk_of_cows[i] for i in list(element)]) >= max_milk_obtainable:
+                    # Guardar la cantidad de leche
                     max_milk_obtainable = sum([milk_of_cows[i] for i in list(element)])
     return max_milk_obtainable
     
