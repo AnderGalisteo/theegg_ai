@@ -31,6 +31,10 @@ Por ejemplo, para cifrar el primer mensaje mencionado en la novela de Stephenson
 
 Si eres realmente bueno, puedes aprender a sumar letras en tu cabeza, y simplemente sumar las letras del paso (1) y (2). Sólo hace falta un poco de práctica. Es fácil recordar que A+A=B; recordar que T+Q=K es más difícil. 
 """
+"""
+No hay mucho que decir, simplemente he implementado el algoritmo. En vez de una baraja, he creado un array de 0 a 53. 0 y 1 son los jockers.
+En realidad, no tenemos que generar conjuntos de números, por eso no los voy a dividir en grupos de 5, aunque voy a añadir las X.
+"""
 
 import random
 
@@ -39,7 +43,10 @@ def generar_solitario(tamano,baraja):
 
     num_itera = 0
     solitario = []
+
+    # Para cada número a generar
     while (num_itera<tamano):
+        # Encuentro el comodín 1 y ejecuto paso 1: imaginar que la baraja es circular y cambiar el primer comodín por su carta de debajo
         index_comodin_0 = baraja.index(0)
         if index_comodin_0 == 53:
             one = [baraja[0]]
@@ -50,7 +57,7 @@ def generar_solitario(tamano,baraja):
             tmp = baraja[index_comodin_0]
             baraja[index_comodin_0] = baraja[index_comodin_0+1]
             baraja[index_comodin_0+1] = tmp
-           
+        # Encuentro el comodín 2 y ejecuto paso 2: poner el comodín 2 por debajo
         index_comodin_1 = baraja.index(1)
         if index_comodin_1 == 53:
             baraja = baraja[0:2]+[baraja[53]]+baraja[2:53]
@@ -70,21 +77,21 @@ def generar_solitario(tamano,baraja):
             if not(type(four) == list):
                 four = [four]
             baraja = one+two+three+four
-        try:    
-            index_comodin_0 = baraja.index(0)
-        except:
-            print("Error here")
-            print(baraja)
+        # Encontrar el comodín 1 y 2 y obtener las posiciones del primero y el segundo.
+        index_comodin_0 = baraja.index(0)
         index_comodin_1 = baraja.index(1)
         smaller_index = min(index_comodin_0,index_comodin_1)
         higher_index = max(index_comodin_0,index_comodin_1)
-
+        # Realizar un corte a 3 y cambiar primero y último corte
         baraja = baraja[higher_index+1:54]+baraja[smaller_index:higher_index+1]+baraja[0:smaller_index]
+        # Si no es un comodín, volver a hacer un corte
         if baraja[53]!=0 and baraja[53]!=1:
             value = baraja[53]-1
             baraja = baraja[value+1:53]+baraja[0:value+1]+baraja[53:54]
+         # Si la primera carta es un comodín, volver a empezar
         if baraja[baraja[0]] == 0 or baraja[baraja[0]] == 1:
             continue
+        # Si hemos lleado aquí, obtener valor de la carta
         if baraja[baraja[0]] > 27:
             solitario.append(baraja[baraja[0]]-27)
         else:
