@@ -1,47 +1,30 @@
 """
-Según la definición de google un algoritmo es: "Un conjunto ordenado de operaciones sistemáticas que permite hacer un cálculo y 
-hallar la solución de un tipo de problemas".En esta tarea debes desarrollar (en el lenguaje o lenguajes de programación que tú 
-quieras) el siguiente algoritmo:Un programa que dado un número introducido entre 0,0001 y 0,9999 (no más de 4 cifras decimales), 
-obtenga y muestre la correspondiente fracción irreducible.Por ejemplo, el número 0,25 se puede obtener a partir de 25/100, o de 2/8, 
-o de 1/4, entre otros. La fracción irreducible es 1/4, que está formada por un numerador y un denominador que son primos entre sí.
+En este caso hay que desarrollar un programa donde una vez enviado un valor decimal a una función este lo convierta a binario y nos lo devuelva. Se trata de construir un simulador de un convertidor analógico digital mediante un programa (software). El hardware lo dejamos para otro día
 """
 """
-Lo he programado en python y el algoritmo es muy sencillo. Intenta dividir por 2 y luego por 3 etc hasta que encuentre un número por 
-el que dividirlo o llegue hasta el mínimo entre el numerador y el denominador.
+Se nos dice que es un valor decimal pero no en que rango. Yo voy a coger un valor entre 0 y 1. 1 se mapeara a "11111111" equivalente a 255 y 0 a 0. 
+Cualquier valor intermedio será interpretado proporcionalmente. Si el valor está fuera de rango, devolverá -1, un error.
+Los "leading zeros" he decidido quitarlos, ya que así la solución es mś limpia en caso de números pequeños.
 """
-def verificar_y_calcular(val):
+def dec_a_binario(val):
     try:
         x = float(val)
     except ValueError:
         print("Tiene que introducir un número")
-        return 1,0
-    if len(val)>6:
-        print("El número no puede tener más que 4 decimales")
-        return 2,0
-    if not(x>= 0.0001 and x<=0.9999):
-        print("El número tiene que estar entre 0.0001 y 0.9999")
-        return 3,0
-    numerador = int(x*10000)
-    denominador = 10000
-
-    maxnum = min(numerador, denominador)
-
-    i = 2
-    while(i<=maxnum):
-        if numerador%i == 0 and denominador%i == 0:
-            numerador = numerador/i
-            denominador = denominador/i
-            maxnum = min(numerador, denominador)
-            i = 2
-        else:
-            i = i + 1
-    return str(int(numerador)), str(int(denominador))
+        return -1
+    if not(x>= 0 and x<=1):
+        print("El número tiene que estar entre 0 y 1")
+        return -1
+        
+    return bin(int(x*255))[2:]
 
 
 
 if __name__ == "__main__":
-    val = input("Introduzca su valor entre 0.0001 y 0.9999: ")
-    numerador, denominador = verificar_y_calcular(val)
-    if not(denominador == 0):
-        print(numerador+"/"+denominador)
+    val = input("Introduzca su valor entre 0 y 1: ")
+    binvalue = dec_a_binario(val)
+    if binvalue == -1:
+        print("Un error ocurrio")
+        exit()
+    print(binvalue)
 
