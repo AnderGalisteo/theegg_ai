@@ -37,13 +37,28 @@ Lo he programado en python y el algoritmo es muy sencillo. Intenta dividir por 2
 el que dividirlo o llegue hasta el mínimo entre el numerador y el denominador.
 """
 def encontrar_conjunto_largo(base1, base2):
-    return
+
+    if len(base1) >= len(base2):
+        largo = base1
+        corto = base2
+    else:
+        largo = base2
+        corto = base1
+
+    thelen = len(corto)
+    for i in list(range(thelen,0,-1)):
+        for j in range(0,thelen-i+1):
+            if corto[0+j:i+j] in largo:
+                return corto[0+j:i+1+j]
+
+    return ""
 
 
 
 if __name__ == "__main__":
-    val = input("Introduzca su valor entre 0.0001 y 0.9999: ")
-    numerador, denominador = verificar_y_calcular(val)
-    if not(denominador == 0):
-        print(numerador+"/"+denominador)
+    base1 = input("Introduzca primera secuencia: ")
+    base2 = input("Introduzca segunda secuencia: ")
+    subconjunto = encontrar_conjunto_largo(base1, base2)
+    print(subconjunto)
+
 
