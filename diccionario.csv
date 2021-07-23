@@ -64,3 +64,5 @@
 "","31","ETL","Extraction, Transform and Load. Es el proceso por el que pasan los datos desde tener datos en crudo hasta tener datos que vayamos a procesar."
 "","31","bases-de-datos","Archivo con una estructura muy especial utilizado para almacenar datos y más importante, para poder obtenerlos de manera rápida bajo demanda."
 "","31","data-preprocessing","Modificación de datos antes de ser procesados para limpiarlos y que sean más faciles de manejar o que les cambie alguna característica que nos interese."
+"","33"diagrama-de-flujo","Ver 42"
+"","33"bucles-en-programación","Ver 44"
