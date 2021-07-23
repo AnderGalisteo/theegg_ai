@@ -60,3 +60,7 @@
 "57","25","IP","Dirección única del dispositivo de la capa 4 OSI utilizada para direccionar y enrutar mensajes"
 "58","25","DNS","Convertidor de nombres web a direcciones IP"
 "59","25","protocolo-TCP/IP","Protocolo utilizado para el intercambio de datos. La parte IP se encarga de que lleguen a su destino y la TCP de que lleguen de manera correcta."
+
+"","31","ETL","Extraction, Transform and Load. Es el proceso por el que pasan los datos desde tener datos en crudo hasta tener datos que vayamos a procesar."
+"","31","bases-de-datos","Archivo con una estructura muy especial utilizado para almacenar datos y más importante, para poder obtenerlos de manera rápida bajo demanda."
+"","31","data-preprocessing","Modificación de datos antes de ser procesados para limpiarlos y que sean más faciles de manejar o que les cambie alguna característica que nos interese."
