@@ -49,13 +49,14 @@
 "46","23","algoritmo-de-cifrado-simétrico","Se utiliza la misma clave para cifrar y descifrar un mensaje."
 "47","23","algoritmo-de-cifrado-asimétrico","Se utilizan claves diferentes para cifrar y descifrar un mensaje"
 "48","23","funciones-en-programación","Conjunto de código separado con entrada y salida. Se puede repetir múltiples veces."
-
-
-
-
-"","25","arquitectura-cliente-servidor",""
-"","25","FTP",""
-"","25","servidor-web",""
-"","25","IP",""
-"","25","DNS",""
-"","25","protocolo-TCP/IP",""
+"49","24","convertidor-analógico-digital",""
+"50","24","transistores-bipolares","El transistor bipolar es un dispositivo de tres terminales -emisor, colector y base-, que, atendiendo a su fabricación, puede ser de dos tipos: NPN y PNP."
+"51","24","frecuencia-de-muestreo","Cantidad de veces por unidad de tiempo que medimos una señal"
+"52","24","sistema-binario","Método de representación numérica con base 2"
+"53","24","algebra-boolean","Logica utilizada sobre todo en sistemas binarios donde las variables son booleanas, 1 o 0"
+"54","25","arquitectura-cliente-servidor","En esta arquitectura el servidor sólo sirve, toda interacción es iniciada por el cliente"
+"55","25","FTP","File Transfer Protocol, protocolo de envío de ficheros"
+"56","25","servidor-web","El servidor de 54 pero especializado en atender peticiones web"
+"57","25","IP","Dirección única del dispositivo de la capa 4 OSI utilizada para direccionar y enrutar mensajes"
+"58","25","DNS","Convertidor de nombres web a direcciones IP"
+"59","25","protocolo-TCP/IP","Protocolo utilizado para el intercambio de datos. La parte IP se encarga de que lleguen a su destino y la TCP de que lleguen de manera correcta."
