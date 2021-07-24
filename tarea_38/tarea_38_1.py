@@ -33,8 +33,7 @@ actg
 
 """
 """
-Lo he programado en python y el algoritmo es muy sencillo. Intenta dividir por 2 y luego por 3 etc hasta que encuentre un número por 
-el que dividirlo o llegue hasta el mínimo entre el numerador y el denominador.
+Divido la base más corta en substrings cada vez más cortos y compruebo si todas las combinaciones son contenidas en el string más largo.
 """
 def encontrar_conjunto_largo(base1, base2):
 
@@ -49,7 +48,7 @@ def encontrar_conjunto_largo(base1, base2):
     for i in list(range(thelen,0,-1)):
         for j in range(0,thelen-i+1):
             if corto[0+j:i+j] in largo:
-                return corto[0+j:i+1+j]
+                return corto[0+j:i+j]
 
     return ""
 

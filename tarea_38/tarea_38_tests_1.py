@@ -1,12 +1,17 @@
 import unittest
 
-from tarea_21 import verificar_y_calcular
+from tarea_38_1 import encontrar_conjunto_largo
 
 
-class tarea_21_tests(unittest.TestCase):
+class tarea_38_tests_1(unittest.TestCase):
     def test_comprueba_valores_normales(self):
         """Testea el valor correcto de la función"""
-        
+        valor1 = encontrar_conjunto_largo("ctgactga", "actgagc")
+        self.assertEqual("actga", valor1)
+        valor1 = encontrar_conjunto_largo("cgtaattgcgat", "cgtacagtagc")
+        self.assertEqual("cgta", valor1)
+        valor1 = encontrar_conjunto_largo("ctgggccttgaggaaaactg", "gtaccagtactgatagt")
+        self.assertEqual("actg", valor1)
         
 
 
