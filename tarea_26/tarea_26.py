@@ -1,30 +1,19 @@
 """
-En este caso hay que desarrollar un programa donde una vez enviado un valor decimal a una función este lo convierta a binario y nos lo devuelva. Se trata de construir un simulador de un convertidor analógico digital mediante un programa (software). El hardware lo dejamos para otro día
+Lo primero que hace el programa es descargarse todos los datos de:
+https://datos.gob.es/catalogo/a16003011-evolucion-del-coronavirus-covid-19-en-euskadi1
 """
-"""
-Se nos dice que es un valor decimal pero no en que rango. Yo voy a coger un valor entre 0 y 1. 1 se mapeara a "11111111" equivalente a 255 y 0 a 0. 
-Cualquier valor intermedio será interpretado proporcionalmente. Si el valor está fuera de rango, devolverá -1, un error.
-Los "leading zeros" he decidido quitarlos, ya que así la solución es mś limpia en caso de números pequeños.
-"""
-def dec_a_binario(val):
-    try:
-        x = float(val)
-    except ValueError:
-        print("Tiene que introducir un número")
-        return -1
-    if not(x>= 0 and x<=1):
-        print("El número tiene que estar entre 0 y 1")
-        return -1
-        
-    return bin(int(x*255))[2:]
 
-
+import requests 
+import json
+import io
 
 if __name__ == "__main__":
-    val = input("Introduzca su valor entre 0 y 1: ")
-    binvalue = dec_a_binario(val)
-    if binvalue == -1:
-        print("Un error ocurrio")
-        exit()
-    print(binvalue)
+    print("Hello world")
+
+    response = requests.get('https://opendata.euskadi.eus/contenidos/ds_informes_estudios/covid_19_2020/opendata/generated/covid19-pcr-positives.json')
+    records = json.loads(response.content.decode('iso-8859-1').encode('utf8'))
+
+    
+    #print(records)
+    print(json.dumps(records, indent=1))
 
