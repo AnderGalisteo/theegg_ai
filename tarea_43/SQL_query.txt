@@ -1,0 +1,22 @@
+1.
+SELECT * FROM users;
+2.
+SELECT * FROM mailing_list;
+3.
+SELECT AccessTime, Email FROM users;
+4.
+SELECT Surname, Email, JoinDate FROM mailing_list;
+5.
+SELECT DISTINCT GivenName FROM users;
+6.
+SELECT * FROM members ORDER BY Username ASC;
+7.
+SELECT * FROM mailing_list ORDER BY EmailAddress DESC;
+8.
+SELECT DISTINCT Email, Posts FROM users ORDER BY Posts DESC;
+9.
+SELECT EmailAddress, NumberOfPosts FROM users ORDER BY NumberOfPosts DESC, EmailAddress ASC;
+10.
+SELECT * FROM subscribers ORDER BY MailingAddress DESC, Username ASC LIMIT 3;
+11.
+SELECT DISTINCT FirstName, Downloads FROM users ORDER BY Downloads ASC, FIRSTNAME ASC LIMIT 3;
