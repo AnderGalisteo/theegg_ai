@@ -1,0 +1,8 @@
+Para la búsqueda secuencial:
+La eficiencia es O(n) ya que debemos buscar en cada elemento.
+Para la búsqueda binario:
+No buscamos en todos los elementos. De hecho cuanto más larga la lista, más eficiente el algoritmo en comparación con la búsqueda secuencial. En cada iteración descartamos menos y menos elementos, lo que lleva a que su eficacia es O(log(n))
+
+NOTA:
+Hay que tener en cuenta que en un algoritmo de búsqueda el tiempo se te tarda en ordenarlo también cuenta. Sería O(n²) para bubble sort y O(n log (n)) para el sort implementado en python.
+Es por ello que un Hash Table es más eficaz si lo único que queremos es buscar.
