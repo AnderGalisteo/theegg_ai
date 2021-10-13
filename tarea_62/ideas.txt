@@ -1,0 +1,7 @@
+Yo trabajo con linux y tengo muchos pequeños scripts que hacen cosas por mi. Aquí voy a poner algunos interesantes.
+
+1. Idea 1: Reminder command: taken from https://gist.github.com/ttscoff/cded212ec4dd457186ca
+
+2. Idea 2: text2pdf
+
+3. Idea 3: video compression
