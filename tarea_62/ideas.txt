@@ -1,7 +1,12 @@
 Yo trabajo con linux y tengo muchos pequeños scripts que hacen cosas por mi. Aquí voy a poner algunos interesantes.
 
 1. Idea 1: Reminder command: taken from https://gist.github.com/ttscoff/cded212ec4dd457186ca
+Este es básicamente un recordador. Escribe algo y te lo recuerda cuando se lo pidas. Muy útil para recordar pequeñas cositas que no quieres ir apuntando por la oficina.
 
 2. Idea 2: text2pdf
 
+En muchas ocasiones en mi trabajo me piden mandar la información en formato pdf, aunque sean cosas muy simples. Este script convierte texto en PDF para que puedas mandarlo de manera sencilla.
+
 3. Idea 3: video compression
+
+Cuando grabo videos, en muchas ocasiones los videos pesan demasiado. Este pequeño script los comprime
