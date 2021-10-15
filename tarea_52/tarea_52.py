@@ -24,7 +24,7 @@ secundario, finalizando al ingresar ?x?.
 
 
 """Para el primer ejercicio vamos a utilizar una lista, ya que es la más fácil de recorrer y se pide recorrer varias veces"""
-def ejercicio_1(number_elements):    
+def ejercicio_1():    
     num_list = []
     print("Introduzca todos los números que quiera y 0 para terminar \n")
     while(True):
@@ -60,12 +60,7 @@ def ejercicio_1(number_elements):
     print(tuplas)
 
 """Ya que no se pide repeticiones, vamos a utilizar sets"""
-def ejercicio_2(number_elements):
-    return number_elements
-
-
-if __name__ == "__main__":
-    #ejercicio_1()
+def ejercicio_2():
     nombresdeprimaria = set()
     print("Introduzca los nombres de los alumnos de primaria")
     while True:
@@ -96,6 +91,12 @@ if __name__ == "__main__":
     print("Los nombres en primaria y no en secundaria son: ")
     for i in nombresprimarianosecon:
         print(i)
+
+
+if __name__ == "__main__":
+    ejercicio_1()
+    ejercicio_2()
+    
     
     
 
