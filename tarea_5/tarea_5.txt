@@ -1,1 +1,5 @@
 ¿Cómo definirías tú la IA? ¿Se te ocurre alguna aplicación de la IA que no se haya mencionado? Crea un documento redactando una definición "de tu cosecha" de la IA y explicando un nuevo uso de la IA que se te ocurra.
+
+La IA es una herramienta que nos permite encontrar patrones que no hemos encontrado los humanos. Como esos patrones se pueden obtener de cualquier dato digital, todo lo que sea digitalizable es "patronable" y por tanto aprendible.
+
+Creo que el arte es una de las más interesantes.
